@@ -1,0 +1,10 @@
+{
+  "name": "Mi Florería",
+  "short_name": "Mi Florería",
+  "description": "Gestión de inventario, compras, producción, pedidos y caja",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fff8fb",
+  "theme_color": "#7b2d52",
+  "icons": []
+}

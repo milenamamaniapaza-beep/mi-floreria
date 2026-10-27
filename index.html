@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7b2d52">
+  <title>Mi Florería</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brandmark">✿</div>
+    <div><h1>Mi Florería</h1><p>Gestión de tu negocio</p></div>
+    <button id="logoutBtn" class="small-btn hidden" type="button">Salir</button>
+  </header>
+
+  <main>
+    <section id="setupNotice" class="notice hidden">
+      <strong>Configuración pendiente</strong>
+      <p>Antes de usar la aplicación, abre <code>app.js</code> y confirma la URL y la clave publicable de Supabase.</p>
+    </section>
+
+    <section id="authPanel" class="panel auth-panel">
+      <div class="flower-art">🌷 🌼 🌹</div>
+      <h2>Bienvenida</h2>
+      <p class="muted">Inicia sesión para administrar tu florería.</p>
+      <form id="authForm">
+        <label for="email">Correo electrónico</label>
+        <input id="email" type="email" autocomplete="email" required placeholder="tucorreo@ejemplo.com">
+        <label for="password">Contraseña</label>
+        <input id="password" type="password" autocomplete="current-password" required minlength="6" placeholder="Tu contraseña">
+        <button class="primary" type="submit">Iniciar sesión</button>
+        <button id="signupBtn" class="secondary" type="button">Crear cuenta</button>
+      </form>
+      <p id="authMessage" class="message" role="status"></p>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="welcome"><div><p class="eyebrow">PANEL PRINCIPAL</p><h2>Tu florería, organizada</h2></div><span class="flower-badge">✿</span></div>
+      <div class="tiles">
+        <button class="tile" data-table="flores"><span>🌷</span><strong>Flores</strong><small>Inventario</small></button>
+        <button class="tile" data-table="materiales"><span>🧵</span><strong>Materiales</strong><small>Existencias</small></button>
+        <button class="tile" data-table="compras"><span>🛍️</span><strong>Compras</strong><small>Proveedores</small></button>
+        <button class="tile" data-table="producciones"><span>💐</span><strong>Producción</strong><small>Flores elaboradas</small></button>
+        <button class="tile" data-table="clientes"><span>👥</span><strong>Clientes</strong><small>Contactos</small></button>
+        <button class="tile" data-table="pedidos"><span>📦</span><strong>Pedidos</strong><small>Entregas</small></button>
+        <button class="tile" data-table="pagos_clientes"><span>💳</span><strong>Pagos</strong><small>Cobros</small></button>
+        <button class="tile" data-table="gastos"><span>🧾</span><strong>Gastos</strong><small>Salidas</small></button>
+        <button class="tile" data-table="movimientos_caja"><span>💰</span><strong>Caja</strong><small>Ingresos y egresos</small></button>
+        <button class="tile" data-table="proveedores"><span>🚚</span><strong>Proveedores</strong><small>Contactos</small></button>
+      </div>
+      <section id="dataPanel" class="panel hidden">
+        <div class="panel-heading"><div><p class="eyebrow">REGISTROS</p><h2 id="dataTitle">Datos</h2></div><button id="closeData" class="small-btn" type="button">Volver</button></div>
+        <p id="dataMessage" class="muted">Cargando...</p>
+        <div id="dataRows" class="data-rows"></div>
+      </section>
+      <p class="footnote">Tus datos se consultan según los permisos configurados en Supabase. Esta primera versión permite iniciar sesión y consultar registros; los formularios de alta se añadirán después de validar las columnas exactas de cada tabla.</p>
+    </section>
+  </main>
+  <footer>Mi Florería · Hecho para tu negocio 🌸</footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
